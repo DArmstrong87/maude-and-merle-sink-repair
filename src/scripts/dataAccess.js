@@ -12,4 +12,12 @@ export const fetchRequests = () => {
 }
 
 
-export const applicationState = {}
+export const applicationState = {
+    requests: []
+}
+
+export const getRequests = () => {
+    return applicationState.requests.map(request => ({...request}))
+}
+
+console.log(getRequests())
