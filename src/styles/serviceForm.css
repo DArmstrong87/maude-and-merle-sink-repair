@@ -14,3 +14,12 @@
     font-weight: bold;
     color: white;
 }
+
+.request__delete {
+    background-color: lightcoral;
+    font-weight: bold;
+}
+
+.request__list {
+    list-style-image: url('/images/wrench.png');
+}

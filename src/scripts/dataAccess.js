@@ -1,3 +1,5 @@
+import { mainContainer } from "./main.js"
+
 const API = "http://localhost:8088"
 
 export const fetchRequests = () => {
@@ -11,13 +13,36 @@ export const fetchRequests = () => {
         )
 }
 
-
 export const applicationState = {
     requests: []
 }
 
 export const getRequests = () => {
-    return applicationState.requests.map(request => ({...request}))
+    return applicationState.requests.map(request => ({ ...request }))
 }
 
-console.log(getRequests())
+export const sendRequest = (userServiceRequest) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userServiceRequest)
+    }
+
+
+    return fetch(`${API}/requests`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+export const deleteRequest = (id) => {
+    return fetch(`${API}/requests/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
