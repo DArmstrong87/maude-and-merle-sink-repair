@@ -3,7 +3,7 @@ import { getRequests } from "./dataAccess.js";
 
 const listRequests = (request) => {
     return `
-    <li>
+    <li class="request__list__li">
         ${request.description}
         <button class="request__delete"
                 id="request--${request.id}">

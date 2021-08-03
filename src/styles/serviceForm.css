@@ -15,11 +15,25 @@
     color: white;
 }
 
+.request__list {
+    list-style-image: url('/images/wrench.png');
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: darkgray;
+}
+
+.request__list li:nth-child(odd) {
+    background-color: lightgrey;
+}
+
+.request__list__li {
+    background-color: darkgray;
+    padding: 5px 5px 5px 0px;
+}
+
 .request__delete {
     background-color: lightcoral;
     font-weight: bold;
-}
-
-.request__list {
-    list-style-image: url('/images/wrench.png');
+    justify-self: end;
 }
