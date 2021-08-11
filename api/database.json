@@ -9,35 +9,38 @@
       "name": "Merle"
     }
   ],
-  "completions": [],
-  "requests": [
+  "completions": [
     {
-      "id": 1,
-      "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "34445 Bianka Ports",
-      "budget": 400,
-      "neededBy": "2021-08-27"
-    },
+      "id": "1",
+      "plumber": "2",
+      "date_created": 1628715098168
+    }
+  ],
+  "requests": [
     {
       "id": 1,
       "description": "Plz halp! My toilet asploded and there is shit everywhere!",
       "address": "34445 Bianka Ports",
       "budget": 400,
-      "neededBy": "2021-08-27"
+      "neededBy": "2021-08-27",
+      "isComplete": "false"
     },
     {
       "description": "Broken sink",
       "address": "123 Broke Sink Lane",
       "budget": "200",
       "neededBy": "2021-08-04",
-      "id": 2
+      "id": 2,
+      "isComplete": "false"
+
     },
     {
       "description": "Leaky Shower Head",
       "address": "123 Leaky Way",
       "budget": "200",
       "neededBy": "2021-08-14",
-      "id": 3
+      "id": 3,
+      "isComplete": "false"
     }
   ]
 }

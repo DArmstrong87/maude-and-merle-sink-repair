@@ -42,7 +42,9 @@ export const applicationState = {
 }
 
 export const getRequests = () => {
-    return applicationState.requests.map(request => ({ ...request }))
+    return applicationState.requests.map(request => ({ ...request })).sort(
+        function (request) { return request.isComplete === true }
+    )
 }
 export const getPlumbers = () => {
     return applicationState.plumbers.map(plumber => ({ ...plumber }))
@@ -77,11 +79,19 @@ export const deleteRequest = (id) => {
         )
 }
 
-export const saveCompletion = (id) => {
-    return fetch(`${API}/completions/${id}`, { method: "POST" })
-        .then(
-            () => {
-                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-            }
-        )
+
+export const saveCompletion = (userCompletedTicket) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userCompletedTicket)
+    }
+
+    return fetch(`${API}/completions`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
 }
