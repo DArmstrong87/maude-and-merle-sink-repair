@@ -16,11 +16,10 @@
 }
 
 .request__list {
-    list-style-image: url('/images/wrench.png');
+    list-style: none;
     width: fit-content;
     display: flex;
     flex-direction: column;
-    background-color: darkgray;
 }
 
 .request__list li:nth-child(odd) {
@@ -28,12 +27,23 @@
 }
 
 .request__list__li {
+    display: flex;
     background-color: darkgray;
-    padding: 5px 5px 5px 0px;
+    padding: 5px 5px 5px 5px;
+    justify-content: space-between;
 }
 
 .request__delete {
     background-color: lightcoral;
     font-weight: bold;
-    justify-self: end;
+    justify-self: flex-end;
+    margin-left: 20px;
+}
+
+.plumbers {
+    display: flex;
+}
+
+.plumber-option {
+    justify-self: flex-end;
 }
