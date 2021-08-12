@@ -8,7 +8,7 @@
     font-size: 16px;
 }
 
-.button {
+.submit_request {
     margin-top: 10px;
     background-color: royalblue;
     font-weight: bold;
@@ -17,33 +17,41 @@
 
 .request__list {
     list-style: none;
-    width: fit-content;
     display: flex;
     flex-direction: column;
 }
 
-.request__list li:nth-child(odd) {
-    background-color: lightgrey;
+.eachLine {
+    display: flex;
+    /* border: 2px black solid; */
+    background-color: darkgray;
+    justify-content: space-between;
+}
+.eachLine:nth-child(odd) {
+    display: flex;
+    /* border: 2px black solid; */
+    background-color: lightgray;
 }
 
 .request__list__li {
-    display: flex;
-    background-color: darkgray;
     padding: 5px 5px 5px 5px;
-    justify-content: space-between;
 }
 
 .request__delete {
     background-color: lightcoral;
     font-weight: bold;
-    justify-self: flex-end;
     margin-left: 20px;
+    justify-content: flex-end;
 }
 
 .plumbers {
-    display: flex;
+    justify-self: flex-end;
 }
 
-.plumber-option {
-    justify-self: flex-end;
+.request__completed{
+    font-style: italic;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px black solid; */
 }

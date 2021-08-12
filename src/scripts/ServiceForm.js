@@ -43,7 +43,7 @@ export const ServiceForm = () => {
             <input type="date" name="serviceDate" class="input" />
         </div>
 
-        <button class="button" id="submitRequest">Submit Request</button>
+        <button class="submit_request" id="submitRequest">Submit Request</button>
     `
 
     return html

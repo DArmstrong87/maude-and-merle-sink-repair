@@ -1,16 +1,27 @@
-import { getRequests, getPlumbers, saveCompletion, applicationState, fetchCompletions } from "./dataAccess.js";
+import { getRequests, getPlumbers, saveCompletion, applicationState, getCompletions } from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container")
 
 const completeTicket = () => {
     const requests = getRequests()
-    applicationState.completions.forEach(
+    const completions = getCompletions()
+
+    completions.forEach(
         (completed) => {
-            for(const request of requests){
+            for (const request of requests) {
                 return completed.id === request.id
             }
         }
-    ).isComplete = true
+    )
+    requests.forEach(
+        (request) => {
+            for (const completed of completions) {
+                if (completed.id === request.id) {
+                    request.isComplete = true
+                }
+            }
+        }
+    )
 }
 
 mainContainer.addEventListener(
@@ -32,24 +43,30 @@ mainContainer.addEventListener(
 
 const listRequests = (request) => {
     const plumbers = getPlumbers()
-    return `
-    <li class="request__list__li">
-        🛠 ${request.description}
-        <select class="plumbers" id="plumbers">
-            <option value="" class="plumber-option">Choose</option>
-            ${plumbers.map(
-        plumber => {
-            return `<option value="${request.id}--${plumber.id}">${plumber.name}</option>`
-        }
-    ).join("")
-        }
+    let html = ''
+    if (request.isComplete === false) {
+        html += `<section class="eachLine">
+        <li class="request__list__li">🛠 ${request.description}</li>
+            <select class="plumbers" id="plumbers">
+                <option value="" class="plumber-option">Complete</option>
+                    ${plumbers.map(
+            plumber => {
+                return `<option value="${request.id}--${plumber.id}">${plumber.name}</option>`
+            }
+        ).join("")
+            }
             </select>
-        <button class="request__delete"
-                id="request--${request.id}">
-            Delete
-        </button>
-    </li >
-    `
+            
+            <button class="request__delete" id="request--${request.id}">
+            Delete</button></section>`
+    } else {
+        html += `<section class="request__completed">
+            <li class="request__list__li">🛠 ${request.description} -- Completed
+            </li><button class="request__delete" id="request--${request.id}">
+            Delete</button></section>`
+    }
+
+    return html
 }
 
 export const Requests = () => {

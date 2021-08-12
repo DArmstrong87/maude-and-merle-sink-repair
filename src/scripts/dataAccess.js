@@ -49,7 +49,7 @@ export const getRequests = () => {
 export const getPlumbers = () => {
     return applicationState.plumbers.map(plumber => ({ ...plumber }))
 }
-export const getCompletion = () => {
+export const getCompletions = () => {
     return applicationState.completions.map(completed => ({ ...completed }))
 }
 

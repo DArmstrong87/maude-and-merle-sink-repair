@@ -14,6 +14,11 @@
       "id": "1",
       "plumber": "2",
       "date_created": 1628715098168
+    },
+    {
+      "id": "3",
+      "plumber": "1",
+      "date_created": 1628784523635
     }
   ],
   "requests": [
@@ -23,7 +28,7 @@
       "address": "34445 Bianka Ports",
       "budget": 400,
       "neededBy": "2021-08-27",
-      "isComplete": "false"
+      "isComplete": false
     },
     {
       "description": "Broken sink",
@@ -31,8 +36,7 @@
       "budget": "200",
       "neededBy": "2021-08-04",
       "id": 2,
-      "isComplete": "false"
-
+      "isComplete": false
     },
     {
       "description": "Leaky Shower Head",
@@ -40,7 +44,39 @@
       "budget": "200",
       "neededBy": "2021-08-14",
       "id": 3,
-      "isComplete": "false"
+      "isComplete": true
+    },
+    {
+      "description": "Water leaking from ceiling",
+      "address": "800 Roof Collapse Blvd",
+      "budget": "5000",
+      "neededBy": "2021-08-19",
+      "isComplete": false,
+      "id": 4
+    },
+    {
+      "description": "Stopped up toilet",
+      "address": "900 Code Brown Ave",
+      "budget": "150",
+      "neededBy": "2021-08-13",
+      "isComplete": false,
+      "id": 5
+    },
+    {
+      "description": "CODE BROWN!",
+      "address": "714 Oh No Street",
+      "budget": "500",
+      "neededBy": "2021-08-12",
+      "isComplete": false,
+      "id": 6
+    },
+    {
+      "description": "Anotha one!",
+      "address": "Another One Ave",
+      "budget": "8000",
+      "neededBy": "2021-08-12",
+      "isComplete": false,
+      "id": 7
     }
   ]
 }
