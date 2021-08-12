@@ -19,6 +19,15 @@ mainContainer.addEventListener(
     }
 )
 
+const sortedDatabase = () => {
+    for (const request of requests){
+        if(foundCompletedIds.includes(request.id)){
+            requests.sort(function(requestComplete,requestIncomplete){return requestIncomplete > requestComplete})
+        }       
+    }
+}
+sortedDatabase()
+
 const listRequests = (request) => {
     const plumbers = getPlumbers()
     const requests = getRequests()
@@ -33,7 +42,6 @@ const listRequests = (request) => {
     )
     const foundCompletedIds = foundCompletedRequests.map(
         completedObject => completedObject.id)
-
     let html = ''
     if (foundCompletedIds.includes(request.id) === false) {
         html += `<section class="eachLine">
