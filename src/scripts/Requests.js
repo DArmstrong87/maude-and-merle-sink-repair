@@ -1,28 +1,6 @@
-import { getRequests, getPlumbers, saveCompletion, applicationState, getCompletions } from "./dataAccess.js";
+import { getRequests, getPlumbers, saveCompletion, getcompletions } from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container")
-
-const completeTicket = () => {
-    const requests = getRequests()
-    const completions = getCompletions()
-
-    completions.forEach(
-        (completed) => {
-            for (const request of requests) {
-                return completed.id === request.id
-            }
-        }
-    )
-    requests.forEach(
-        (request) => {
-            for (const completed of completions) {
-                if (completed.id === request.id) {
-                    request.isComplete = true
-                }
-            }
-        }
-    )
-}
 
 mainContainer.addEventListener(
     "change",
@@ -31,20 +9,26 @@ mainContainer.addEventListener(
             const [requestId, plumberId] = event.target.value.split("--")
 
             const completedTicketToAPI = {
-                id: requestId,
-                plumber: plumberId,
-                date_created: Date.now()
+                id: parseInt(requestId),
+                plumber: parseInt(plumberId),
+                date_completed: Date.now()
             }
             saveCompletion(completedTicketToAPI)
-            completeTicket()
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         }
     }
 )
 
 const listRequests = (request) => {
     const plumbers = getPlumbers()
+    const completedAssignments = getcompletions()
+    const foundCompletedRequest = completedAssignments.filter(
+        (completed) => {
+            return request.id === completed.id
+        }
+    )
     let html = ''
-    if (request.isComplete === false) {
+    if (foundCompletedRequest) {
         html += `<section class="eachLine">
         <li class="request__list__li">🛠 ${request.description}</li>
             <select class="plumbers" id="plumbers">

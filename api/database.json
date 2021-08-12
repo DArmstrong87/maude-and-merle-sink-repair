@@ -11,14 +11,19 @@
   ],
   "completions": [
     {
-      "id": "1",
-      "plumber": "2",
-      "date_created": 1628715098168
+      "id": 1,
+      "plumber": 2,
+      "date_completed": 1628715098168
     },
     {
-      "id": "3",
-      "plumber": "1",
-      "date_created": 1628784523635
+      "id": 3,
+      "plumber": 1,
+      "date_completed": 1628784523635
+    },
+    {
+      "id": 2,
+      "plumber": 1,
+      "date_completed": 1628794621982
     }
   ],
   "requests": [
@@ -28,7 +33,7 @@
       "address": "34445 Bianka Ports",
       "budget": 400,
       "neededBy": "2021-08-27",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "description": "Broken sink",
