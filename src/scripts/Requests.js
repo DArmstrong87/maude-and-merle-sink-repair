@@ -1,4 +1,4 @@
-import { getRequests, getPlumbers, saveCompletion, getcompletions } from "./dataAccess.js";
+import { getRequests, getPlumbers, saveCompletion, getCompletions } from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container")
 
@@ -21,14 +21,21 @@ mainContainer.addEventListener(
 
 const listRequests = (request) => {
     const plumbers = getPlumbers()
-    const completedAssignments = getcompletions()
-    const foundCompletedRequest = completedAssignments.filter(
-        (completed) => {
-            return request.id === completed.id
+    const requests = getRequests()
+    const completedAssignments = getCompletions()
+    const foundCompletedRequests = requests.filter(
+        (request) => {
+            for (const completed of completedAssignments)
+                if (request.id === completed.id) {
+                    return completed
+                }
         }
     )
+    const foundCompletedIds = foundCompletedRequests.map(
+        completedObject => completedObject.id)
+
     let html = ''
-    if (foundCompletedRequest) {
+    if (foundCompletedIds.includes(request.id) === false) {
         html += `<section class="eachLine">
         <li class="request__list__li">🛠 ${request.description}</li>
             <select class="plumbers" id="plumbers">

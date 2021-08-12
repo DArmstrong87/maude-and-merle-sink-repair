@@ -43,18 +43,6 @@ export const applicationState = {
 
 console.log(applicationState)
 
-// export const setComplete = () => {
-//     const requests = applicationState.requests
-//     return requests.forEach(request => {
-//         for (const completed of applicationState.completions) {
-//             if (request.id === completed.id) {
-//                 return request.isComplete = true
-//             }
-//         }
-//     }
-//     )
-// }
-
 export const getRequests = () => {
     return applicationState.requests.map(request => ({ ...request })).sort(
         function (request) { return request.isComplete === true }
@@ -63,7 +51,7 @@ export const getRequests = () => {
 export const getPlumbers = () => {
     return applicationState.plumbers.map(plumber => ({ ...plumber }))
 }
-export const getcompletions = () => {
+export const getCompletions = () => {
     return applicationState.completions.map(completed => ({ ...completed }))
 }
 
