@@ -1,20 +1,28 @@
 {
-  "plumbers": [],
-  "completions": [],
-  "requests": [
+  "plumbers": [
     {
       "id": 1,
-      "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-      "address": "34445 Bianka Ports",
-      "budget": 400,
-      "neededBy": "2021-08-27"
+      "name": "Maude"
     },
     {
-      "id": 1,
-      "description": "Plz halp! My toilet asploded and there is shit everywhere!",
-      "address": "34445 Bianka Ports",
-      "budget": 400,
-      "neededBy": "2021-08-27"
+      "id": 2,
+      "name": "Merle"
+    }
+  ],
+  "completions": [
+    {
+      "id": 7,
+      "plumber": 2,
+      "date_completed": 1628803423828
+    }                           
+  ],
+  "requests": [
+    {
+      "description": "Faucet handle broke",
+      "address": "123 Broke Sink Lane",
+      "budget": "200",
+      "neededBy": "2021-08-04",
+      "id": 1
     },
     {
       "description": "Broken sink",
@@ -29,6 +37,41 @@
       "budget": "200",
       "neededBy": "2021-08-14",
       "id": 3
+    },
+    {
+      "description": "Water leaking from ceiling",
+      "address": "800 Roof Collapse Blvd",
+      "budget": "5000",
+      "neededBy": "2021-08-19",
+      "id": 4
+    },
+    {
+      "description": "Stopped up toilet",
+      "address": "900 Code Brown Ave",
+      "budget": "150",
+      "neededBy": "2021-08-13",
+      "id": 5
+    },
+    {
+      "description": "CODE BROWN!",
+      "address": "714 Oh No Street",
+      "budget": "500",
+      "neededBy": "2021-08-12",
+      "id": 6
+    },
+    {
+      "description": "Anotha one!",
+      "address": "Another One Ave",
+      "budget": "8000",
+      "neededBy": "2021-08-12",
+      "id": 7
+    },
+    {
+      "description": "Water under sink",
+      "address": "Sinky McSinkFace Ln",
+      "budget": "2399",
+      "neededBy": "2021-08-26",
+      "id": 8
     }
   ]
 }

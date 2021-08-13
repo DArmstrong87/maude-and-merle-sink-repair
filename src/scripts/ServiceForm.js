@@ -15,7 +15,8 @@ mainContainer.addEventListener("click", clickEvent => {
             description: userDescription,
             address: userAddress,
             budget: userBudget,
-            neededBy: userDate
+            neededBy: userDate,
+            isComplete: false
         }
 
         // Send the data to the API for permanent storage
@@ -42,7 +43,7 @@ export const ServiceForm = () => {
             <input type="date" name="serviceDate" class="input" />
         </div>
 
-        <button class="button" id="submitRequest">Submit Request</button>
+        <button class="submit_request" id="submitRequest">Submit Request</button>
     `
 
     return html

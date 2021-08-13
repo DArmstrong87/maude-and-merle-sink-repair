@@ -13,12 +13,46 @@ export const fetchRequests = () => {
         )
 }
 
-export const applicationState = {
-    requests: []
+export const fetchPlumbers = () => {
+    return fetch(`${API}/plumbers`)
+        .then(response => response.json())
+        .then(
+            (plumber) => {
+                // Store the external state in application state
+                applicationState.plumbers = plumber
+            }
+        )
 }
 
+export const fetchCompletions = () => {
+    return fetch(`${API}/completions`)
+        .then(response => response.json())
+        .then(
+            (completed) => {
+                // Store the external state in application state
+                applicationState.completions = completed
+            }
+        )
+}
+
+export const applicationState = {
+    requests: [],
+    plumbers: [],
+    completions: []
+}
+
+console.log(applicationState)
+
 export const getRequests = () => {
-    return applicationState.requests.map(request => ({ ...request }))
+    return applicationState.requests.map(request => ({ ...request })).sort(
+        function (request) { return request.isComplete === true }
+    )
+}
+export const getPlumbers = () => {
+    return applicationState.plumbers.map(plumber => ({ ...plumber }))
+}
+export const getCompletions = () => {
+    return applicationState.completions.map(completed => ({ ...completed }))
 }
 
 export const sendRequest = (userServiceRequest) => {
@@ -45,4 +79,21 @@ export const deleteRequest = (id) => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             }
         )
+}
+
+
+export const saveCompletion = (userCompletedTicket) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userCompletedTicket)
+    }
+
+    return fetch(`${API}/completions`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
 }
