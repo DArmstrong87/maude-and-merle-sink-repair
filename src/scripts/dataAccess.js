@@ -41,7 +41,26 @@ export const applicationState = {
     completions: []
 }
 
-console.log(applicationState)
+// console.log(applicationState)
+
+export const sortApplicationState = () => {
+    const requests = applicationState.requests
+    const completions = applicationState.completions
+
+    requests.sort(() => {
+        const foundCompleted = requests.forEach(
+            request => {
+                if(completions.includes(request.id) === true){
+                    return request
+                }
+            }
+        )
+        for(const completed of foundCompleted){
+            return completed - requests
+        }
+    })
+}
+sortApplicationState()
 
 export const getRequests = () => {
     return applicationState.requests.map(request => ({ ...request })).sort(
