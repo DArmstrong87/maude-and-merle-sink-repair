@@ -19,14 +19,6 @@ mainContainer.addEventListener(
     }
 )
 
-const sortedDatabase = () => {
-    for (const request of requests){
-        if(foundCompletedIds.includes(request.id)){
-            requests.sort(function(requestComplete,requestIncomplete){return requestIncomplete > requestComplete})
-        }       
-    }
-}
-sortedDatabase()
 
 const listRequests = (request) => {
     const plumbers = getPlumbers()
