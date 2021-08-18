@@ -1,0 +1,46 @@
+.request__list {
+    list-style: none;
+}
+
+.eachLine {
+    display: flex;
+    background-color: darkgray;
+    justify-content: space-between;
+    max-width: 50em;
+}
+.eachLine:nth-child(odd) {
+    background-color: lightgray;
+}
+
+.request__list__li {
+    padding: 5px 5px 5px 5px;
+    justify-content: flex-start;
+}
+
+.request__delete {
+    background-color: lightcoral;
+    font-weight: bold;
+    margin-left: 20px;
+    border-radius: 15px;
+    max-height: 31px;
+}
+
+.plumbers {
+    order: -1;
+    border-radius: 15px;
+    max-height: 31px;
+}
+
+.request__completed{
+    font-style: italic;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: space-between;
+    max-width: 50em;
+}
+.request__completed:nth-child(even){
+    font-style: italic;
+    background-color: rgb(125, 206, 125);
+    display: flex;
+    justify-content: space-between;
+}
