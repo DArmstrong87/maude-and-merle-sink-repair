@@ -41,31 +41,24 @@ export const applicationState = {
     completions: []
 }
 
-// console.log(applicationState)
-
-export const sortApplicationState = () => {
+export const getRequests = () => {
     const requests = applicationState.requests
     const completions = applicationState.completions
-
-    requests.sort(() => {
-        const foundCompleted = requests.forEach(
-            request => {
-                if(completions.includes(request.id) === true){
-                    return request
-                }
+    for (const request of requests){
+        for (const complete of completions){
+            if (request.id === complete.id){
+                request.isComplete = true
             }
-        )
-        for(const completed of foundCompleted){
-            return completed - requests
+        }
+    }
+    requests.sort((request) => {
+        if(request.isComplete === true){
+            return 1
+        } else {
+            return -1
         }
     })
-}
-sortApplicationState()
-
-export const getRequests = () => {
-    return applicationState.requests.map(request => ({ ...request })).sort(
-        function (request) { return request.isComplete === true }
-    )
+    return requests.map(request => ({ ...request }))
 }
 export const getPlumbers = () => {
     return applicationState.plumbers.map(plumber => ({ ...plumber }))

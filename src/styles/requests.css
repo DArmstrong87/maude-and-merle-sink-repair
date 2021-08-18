@@ -1,0 +1,45 @@
+.request__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.eachLine {
+    display: flex;
+    /* border: 2px black solid; */
+    background-color: darkgray;
+    justify-content: space-between;
+}
+.eachLine:nth-child(odd) {
+    display: flex;
+    /* border: 2px black solid; */
+    background-color: lightgray;
+}
+
+.request__list__li {
+    padding: 5px 5px 5px 5px;
+}
+
+.request__delete {
+    background-color: lightcoral;
+    font-weight: bold;
+    margin-left: 20px;
+    justify-content: flex-end;
+}
+
+.plumbers {
+    justify-self: flex-end;
+}
+
+.request__completed{
+    font-style: italic;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: space-between;
+}
+.request__completed:nth-child(even){
+    font-style: italic;
+    background-color: rgb(125, 206, 125);
+    display: flex;
+    justify-content: space-between;
+}

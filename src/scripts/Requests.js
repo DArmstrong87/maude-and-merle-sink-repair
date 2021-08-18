@@ -32,10 +32,12 @@ const listRequests = (request) => {
                 }
         }
     )
+
     const foundCompletedIds = foundCompletedRequests.map(
         completedObject => completedObject.id)
     let html = ''
     if (foundCompletedIds.includes(request.id) === false) {
+
         html += `<section class="eachLine">
         <li class="request__list__li">🛠 ${request.description}</li>
             <select class="plumbers" id="plumbers">
